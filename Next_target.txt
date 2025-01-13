@@ -1,0 +1,3 @@
+Running NTL examples : ZZ_p matrix programs.
+Trying to integrate NTL and OpenMPI.
+Reading about fields.
