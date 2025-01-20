@@ -6,9 +6,11 @@ Project Title : Trying to shrink the matrix for ECDLP using an anti-offset, and 
 <br/>Problem Statement : 
 <br/>Project Description : 
 ## Elliptic Curve looks something like this :
+<br/>
 
-> Note : At certain values of 'a' and 'b', the curve is divided into components<br/>
+> Note : At certain values of 'a' and 'b', the curve is divided into components.
 
+<br/>
 https://github.com/user-attachments/assets/c72a7632-273e-4495-a993-21380324cdc3
 
 <br/>Methods or Approach Being Followed : 
