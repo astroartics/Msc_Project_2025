@@ -1,5 +1,5 @@
 <h1 align="center">MSc(Scientific Computing) Project 2024-25</h1>
-<h3 align="center">This is a repository that will contain all the things I've done, related to my MSc(Scientific Computing) Semester 2 research-based project.</h3>
+<h3 align="center">This is a repository that will contain all the things I've done, related to my MSc(Scientific Computing)<br/>semester-2 research-based project.</h3>
 <br/>
 
 Project Title : Trying to shrink the matrix for ECDLP using an anti-offset, and verifying whether it can be reduced to the Zero Minor Problem.
