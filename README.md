@@ -1,4 +1,4 @@
-<h1 align="center">Things I am doing related to the project</h1>
+<h1 align="center">MSc(Scientific Computing) Project 2024-25</h1>
 <h3 align="center">This is a repository that will contain all the things I've done, related to my MSc(Scientific Computing) Semester 2 research-based project.</h3>
 <br/>
 
