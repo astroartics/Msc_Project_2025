@@ -1,4 +1,4 @@
-<img height=200 src="https://github.com/user-attachments/assets/f5eecf77-1159-4098-9862-6ad926e0fce7">
+<img height=200 src="https://github.com/user-attachments/assets/a57c1548-0157-4edd-afd5-e1f0ef83ff22">
 
 ### Yet to do :
 - Trying to integrate NTL and OpenMPI.<br/>
