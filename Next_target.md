@@ -6,9 +6,9 @@
 - Reading and understanding the Las Vegas algorithm.<br/>
 - Understanding the send, receive, broadcast and barrier functions of OpenMPI.<br/>
 - Reading about the NVIDIA course.<br/>
-- Optimize general nxn matrix program to a matrix that is created withing a specific field of a 15-30 bit prime number, and calculating their determinants and keeping count of the determinants that are 0, i.e the count of Zero Minors in that matrix.
 
 ### Done :
 ✅ Running NTL examples : ZZ_p matrix programs.<br/>
 ✅ Finding the count of (n-1)x(n-1) submatrices in nxn matrices.<br/>
 ✅ Finding all 2x2 and 3x3 (in general nxn minors) in a bigger matrix.
+✅ Optimize general nxn matrix program to a matrix that is created withing a specific field of a 15-30 bit prime number, and calculating their determinants and keeping count of the determinants that are 0, i.e the count of Zero Minors in that matrix.
