@@ -6,6 +6,7 @@
 - Reading and understanding the Las Vegas algorithm.<br/>
 - Understanding the send, receive, broadcast and barrier functions of OpenMPI.<br/>
 - Reading about the NVIDIA course.<br/>
+- Dividing the minor calculations and process of getting the minors in 4 processors, each of which will get 'n' combinations for the minor indices each.<br/>
 
 ### Done :
 ✅ Running NTL examples : ZZ_p matrix programs.<br/>
