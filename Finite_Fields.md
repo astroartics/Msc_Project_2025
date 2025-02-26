@@ -23,5 +23,11 @@
 #### Order of an element
 > The order of an element a in a finite field is the smallest positive integer k such that: a^k = 1
 <div align="center">
-<img src="https://github.com/user-attachments/assets/ec8e4775-cf83-46dc-94eb-d05b9843e2a1">
+<img src="https://github.com/user-attachments/assets/ec8e4775-cf83-46dc-94eb-d05b9843e2a1"><br/>
+<img src="https://github.com/user-attachments/assets/b369355f-066b-4b2e-89c5-4357343b0322">
+</div>  
+
+#### Cyclic structure
+<div align="center">
+<img src="https://github.com/user-attachments/assets/8f562797-5cf2-4ae2-bbee-aa0fa5253fba">
 </div>  
