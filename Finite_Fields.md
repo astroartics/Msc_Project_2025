@@ -10,3 +10,12 @@
 #### Peculiar properties
 - A finite field is closed under the operations of addition, subtraction, multiplication, and division (except by zero). This means that performing these operations on any two elements in the finite field will always result in an element that is also in the field.
 - The set of elements in a finite field behaves much like the rational numbers or real numbers under standard arithmetic, but with the crucial distinction that there are only a finite number of elements.
+- Additive Inverses: For every element a in the field, there exists an element −a such that a+(−a)=0. This is true even in finite fields, where the additive inverse of an element is found by subtracting the element modulo the field size.
+- Multiplicative Inverses: Every element except zero has a multiplicative inverse. That is, for each element a != 0, there exists an element a^(−1) such that a⋅a^(−1) = 1. This property is essential in cryptography for operations such as modular division.
+- p times any element equals 0, i.e., p⋅a = 0 for all elements a. (For example, if p = 5 and elements in field = {0,1,2,3,4} then (5*1) mod 5 = 0, (5*3) mod 5 = 0 i.e. 15%5 = 0, and so on).
+
+#### Modular division
+> It is the process of dividing one number by another in modular arithmetic
+<div align="center">
+<img src="https://github.com/user-attachments/assets/ca448d68-d7be-47e7-b7e8-61a19498064a">
+</div>  
