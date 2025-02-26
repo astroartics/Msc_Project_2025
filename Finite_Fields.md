@@ -19,3 +19,9 @@
 <div align="center">
 <img src="https://github.com/user-attachments/assets/ca448d68-d7be-47e7-b7e8-61a19498064a">
 </div>  
+
+#### Order of an element
+> The order of an element a in a finite field is the smallest positive integer k such that: a^k = 1
+<div align="center">
+<img src="https://github.com/user-attachments/assets/ec8e4775-cf83-46dc-94eb-d05b9843e2a1">
+</div>  
