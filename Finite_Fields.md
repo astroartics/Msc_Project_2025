@@ -29,5 +29,5 @@
 
 #### Cyclic structure
 <div align="center">
-<img src="https://github.com/user-attachments/assets/8f562797-5cf2-4ae2-bbee-aa0fa5253fba">
+<img src="https://github.com/user-attachments/assets/3777f636-733e-44b8-bad7-a8561ef56f9e">
 </div>  
