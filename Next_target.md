@@ -4,7 +4,7 @@
 - Reading and understanding the Las Vegas algorithm.<br/>
 - Understanding the send, receive, broadcast and barrier functions of OpenMPI.<br/>
 - Reading about the NVIDIA course.<br/>
-- Trying out the written kth-combination with OpenMPI
+- Trying out the written 'kth-combination with OpenMPI' code on the server with more than 4 processors and gauging the performance.
 
 ### Done :
 ✅ Running NTL examples : ZZ_p matrix programs.<br/>
