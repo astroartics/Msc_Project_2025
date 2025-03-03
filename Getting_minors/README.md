@@ -1,1 +1,1 @@
-## This file contains the codes for getting minors
+## This file contains the codes for getting minors from a nxn matrix.
