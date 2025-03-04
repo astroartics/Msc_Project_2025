@@ -1,4 +1,4 @@
-#include "../Matrix_Minors.hpp"
+#include "Matrix_Minors.hpp"
 
 using namespace std;
 
