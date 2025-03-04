@@ -4,12 +4,13 @@
 #include <fstream>
 #include <NTL/ZZ.h>
 #include <NTL/mat_ZZ_p.h>
-#include "Matrix_Minors.hpp"
 
 using namespace std;
 using namespace NTL;
 
-int zeroMinorCnt = 0;
+// GMP (GNU Multiple Precision Arithmetic Library) : If you are using GMP functions in your code, such as mpz_add(), mpz_set_str(), or other GMP functions to handle large integers or precision
+//                                                   arithmetic, you must link against the GMP library using -lgmp to tell the linker to include the GMP functions.
+// Without this flag, the linker will not be able to find the GMP functions, and you will encounter errors like "undefined reference" during the linking phase.
 
 long int nCr(int n, int r)
 {
@@ -147,22 +148,56 @@ void getMinors(const long int M[], mat_ZZ_p &mat, int r)
     mat_ZZ_p minor;
     minor.SetDims(r, r);
 
-    cout << "\n\n";
+    cout << "\n(" << r << "x" << r << ")\n";
     for (int i = 0; i < r; i++)
     {
         for (int j = 0; j < r; j++)
         {
-            // cout << "here" << endl;
             minor[i][j] = mat[M[i]][M[j]];
-            cout << minor[i][j] << "\t";
+            // cout << minor[i][j] << "\t";
         }
-        cout << endl;
+        // cout << endl;
     }
-    cout << "\n\n";
 
     ZZ_p det = determinant(minor);
-    if (det == ZZ_p(0))
-        zeroMinorCnt++;
+    // if (det == ZZ_p(0))
+    //     zeroMinorCnt++;
+}
+
+void printMinors(int n, int r, int world_size, int world_rank, mat_ZZ_p mat)
+{
+    long int combinations[n];
+
+    for (int i = 0; i < n; i++)
+    {
+        combinations[i] = i;
+    }
+
+    long int ind = 0;
+
+    long int combinationCnt = nCr(n, r);
+    long int minorIndRes[r];
+    int index = (combinationCnt / world_size);
+
+    if (world_rank != (world_size - 1))
+    {
+        for (ind = index * world_rank; ind < (index * (world_rank + 1)); ind++)
+        {
+            get_kth_combination(combinations, n, r, ind, minorIndRes);
+            getMinors(minorIndRes, mat, r);
+        }
+        MPI_Bcast(&ind, 1, MPI_LONG, 0, MPI_COMM_WORLD);
+    }
+
+    MPI_Barrier(MPI_COMM_WORLD);
+    if ((ind < combinationCnt) && (world_rank == (world_size - 1)))
+    {
+        for (ind = (index * (world_size - 1)); ind < combinationCnt; ind++)
+        {
+            get_kth_combination(combinations, n, r, ind, minorIndRes);
+            getMinors(minorIndRes, mat, r);
+        }
+    }
 }
 
 int main(int argc, char *argv[])
@@ -179,8 +214,7 @@ int main(int argc, char *argv[])
     p = 32749;
     ZZ_p::init(p);
     mat_ZZ_p mat;
-    long int n = 6, r = 3;
-    long int combinations[n];
+    long int n = 8;
 
     if (world_rank == 0)
     {
@@ -189,61 +223,23 @@ int main(int argc, char *argv[])
     }
 
     broadcastMatrix(mat, world_rank, n);
-
     MPI_Barrier(MPI_COMM_WORLD);
-    // printf("Process %d received matrix:\n", world_rank);
-    // for (long i = 0; i < n; ++i)
-    // {
-    //     for (long j = 0; j < n; ++j)
-    //     {
-    //         printf("%ld ", conv<long int>(mat[i][j]));
-    //     }
-    //     printf("\n");
-    // }
 
-    for (int i = 0; i < n; i++)
+    for (int i = 2; i < n; i++)
     {
-        combinations[i] = i;
-    }
-
-    long int combinationCnt = nCr(n, r);
-    long int ind = 0;
-    long int minorIndRes[r];
-    int index = (combinationCnt / world_size);
-
-    if (world_rank != (world_size - 1))
-    {
-        for (ind = index * world_rank; ind < (index * (world_rank + 1)); ind++)
-        {
-            get_kth_combination(combinations, n, r, ind, minorIndRes);
-            cout << "\nProcess ID : " << world_rank << endl;
-
-            getMinors(minorIndRes, mat, r);
-        }
-        MPI_Bcast(&ind, 1, MPI_LONG, 0, MPI_COMM_WORLD);
-    }
-
-    MPI_Bcast(&ind, 1, MPI_LONG, 0, MPI_COMM_WORLD);
-    if ((ind < combinationCnt) && (world_rank == (world_size - 1)))
-    {
-        for (ind = (index * (world_size - 1)); ind < combinationCnt; ind++)
-        {
-            get_kth_combination(combinations, n, r, ind, minorIndRes);
-            cout << "\nProcess ID : " << world_rank << endl;
-
-            getMinors(minorIndRes, mat, r);
-        }
+        printMinors(n, i, world_size, world_rank, mat);
     }
 
     MPI_Finalize();
     return 0;
 }
 
-/*
-            for (int k = 0; k < r; k++)
-            {
-                cout << endl
-                     << minorIndRes[k] << " ";
-            }
-            cout << endl;
-*/
+// printf("Process %d received matrix:\n", world_rank);
+// for (long i = 0; i < n; ++i)
+// {
+//     for (long j = 0; j < n; ++j)
+//     {
+//         printf("%ld ", conv<long int>(mat[i][j]));
+//     }
+//     printf("\n");
+// }
