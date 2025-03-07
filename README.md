@@ -16,3 +16,8 @@ https://github.com/user-attachments/assets/c72a7632-273e-4495-a993-21380324cdc3
 <br/><p align="center">Methods or Approach Being Followed : 
 <br/>Things I've Learnt Till Date : 
 </p>
+
+## Double and Add Algorithm
+
+https://github.com/user-attachments/assets/5f95fba4-1cac-4156-9366-b93e4c9d58fa
+
