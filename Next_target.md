@@ -4,7 +4,7 @@
 - Reading and understanding the Las Vegas algorithm.<br/>
 - Understanding the send, receive, broadcast and barrier functions of OpenMPI.<br/>
 - Reading about the NVIDIA course.<br/>
-- Coming up with a rough solution for making sure if the ZMP can be solved even if the matrix is sized down</br>
+- Coming up with a rough solution for making sure if the ZMP can be solved even if the matrix is sized down using an anti-offset</br>
 
 ### Done :
 ✅ Running NTL examples : ZZ_p matrix programs.<br/>
