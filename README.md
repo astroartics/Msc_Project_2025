@@ -2,8 +2,8 @@
 <h3 align="center">This is a repository that will contain all the things I've done, related to my MSc(Scientific Computing)<br/>semester-2 research-based project.</h3>
 <br/>
 
-<p align="center">Project Title : Trying to shrink the matrix for ECDLP using an anti-offset, and verifying whether it can be reduced to the Zero Minor Problem.
-<br/>Problem Statement : 
+<p align="center">Project Title : ECDLP (Elliptic Curve Discrete Logarithm Problem)
+<br/>Problem Statement : Trying to verify if the matrix that is shrinked using an anti-offset, can be reduced to the Zero Minor Problem. 
 <br/>Project Description : </p>
 <br/>
 
