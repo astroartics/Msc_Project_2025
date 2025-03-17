@@ -1,11 +1,10 @@
 <img height=200 src="https://github.com/user-attachments/assets/a57c1548-0157-4edd-afd5-e1f0ef83ff22">
 
 ### Yet to do :
-- Reading and understanding the Las Vegas algorithm.<br/>
 - Understanding the send, receive, broadcast and barrier functions of OpenMPI.<br/>
 - Reading about the NVIDIA course.<br/>
 - Coming up with a rough solution for making sure if the ZMP can be solved even if the matrix is sized down using an anti-offset</br>
-- 
+- Correcting the program, first in a serial manner, then using parallel computing<br/>
 
 ### Done :
 ✅ Running NTL examples : ZZ_p matrix programs.<br/>
