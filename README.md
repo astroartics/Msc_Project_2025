@@ -18,6 +18,8 @@ https://github.com/user-attachments/assets/c72a7632-273e-4495-a993-21380324cdc3
 - Parallelizing tasks amongst availabel processors.<br/>
 - Using functions like MPI_Barrier(), MPI_Bcast(), MPI_Finalize(), MPI_Comm_size(), MPI_Comm_rank()
 - Getting familiar with NTL by using datatypes like ZZ_p, mat_ZZ_p, etc.
+- Basics of what Finite Fields are.
+- Double and Add algorithm along with what ECDLP is.
 
 ## Double and Add Algorithm
 
