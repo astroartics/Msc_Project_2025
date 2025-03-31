@@ -240,7 +240,7 @@ void getMinors(long int combinations[], int n, int r, int world_rank, int world_
         }
         count++;
     }
-    cout << count << endl;
+    // cout << count << endl;
 }
 
 int main(int argc, char *argv[])
