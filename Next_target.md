@@ -4,7 +4,6 @@
 - Understanding the send, receive, broadcast and barrier functions of OpenMPI.<br/>
 - Reading about the NVIDIA course.<br/>
 - Coming up with a rough solution for making sure if the ZMP can be solved even if the matrix is sized down using an anti-offset</br>
-- Correcting the program, first in a serial manner, then using parallel computing<br/>
 
 ### Done :
 ✅ Running NTL examples : ZZ_p matrix programs.<br/>
@@ -14,4 +13,5 @@
 ✅ Trying to integrate NTL and OpenMPI.<br/>
 ❎ Dividing the minor calculations and process of getting the minors in 4 processors, each of which will get 'n' combinations for the minor indices each.<br/>
 ✅ Reading about 'finite fields'.<br/>
-❎ Trying out the written 'kth-combination with OpenMPI' code on the server with more than 4 processors and gauging the performance.
+❎ Trying out the written 'kth-combination with OpenMPI' code on the server with more than 4 processors and gauging the performance.<br/>
+✅ Correcting the program, first in a serial manner, then using parallel computing<br/>
