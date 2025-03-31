@@ -2,9 +2,9 @@
 <h3 align="center">This is a repository that will contain all the things I've done, related to my MSc(Scientific Computing)<br/>semester-2 research-based project.</h3>
 <br/>
 
-<p align="center">Project Title : ECDLP (Elliptic Curve Discrete Logarithm Problem)
+Project Title : ECDLP (Elliptic Curve Discrete Logarithm Problem)
 <br/>Problem Statement : Trying to verify if the matrix that is shrinked using an anti-offset, can be reduced to the Zero Minor Problem. 
-<br/>Project Description : </p>
+<br/>Project Description :
 <br/>
 
 ## Elliptic Curve :
@@ -13,9 +13,11 @@
 
 https://github.com/user-attachments/assets/c72a7632-273e-4495-a993-21380324cdc3
 
-<br/><p align="center">Methods or Approach Being Followed : 
+<br/>Methods or Approach Being Followed : 
 <br/>Things I've Learnt Till Date : 
-</p>
+- Parallelizing tasks amongst availabel processors.<br/>
+- Using functions like MPI_Barrier(), MPI_Bcast(), MPI_Finalize(), MPI_Comm_size(), MPI_Comm_rank()
+- Getting familiar with NTL by using datatypes like ZZ_p, mat_ZZ_p, etc.
 
 ## Double and Add Algorithm
 
