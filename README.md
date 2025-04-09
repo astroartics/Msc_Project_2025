@@ -3,9 +3,12 @@
 <br/>
 
 Project Title : ECDLP (Elliptic Curve Discrete Logarithm Problem)
-<br/>Problem Statement : Trying to verify if the matrix that is shrinked using an anti-offset, can be reduced to the Zero Minor Problem. 
-<br/>Project Description :
-<br/>
+<br/>Project Aim : Given a big matrix, later reduced using an anti-offset (of say, 0.2 or 0.3 that is, 20-30%), the aim is to check whether the zero minor problem can still be solved using this reduced matrix. 
+<br/>Project Description : 
+- Things to prove :
+  1) Is the anti-offset useful?
+  2) If yes, what is the good value for the anti-offset within the range 0 to 1 (as the matrix has to be shrinked)?
+     -  Values of anti-offset that have already been tested : 0.2, 0.3, that is a 20-30% reduced matrix.
 
 ## Elliptic Curve :
 
