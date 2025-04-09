@@ -93,7 +93,6 @@ void broadcastMatrix(mat_ZZ_p &mat, int rank, int n)
     }
 }
 
-// index here refers to the index of the combination, that is the kth combination, so the valid indices are from 1 to combinationCount.
 bool get_kth_combination(long int vec[], long int n, long int r, long int index, long int result_vec[])
 {
     const int vec_len = n;
@@ -144,7 +143,46 @@ bool get_kth_combination(long int vec[], long int n, long int r, long int index,
     return true;
 }
 
-void minorDeterminant(long int r, long int row[], long int col[], mat_ZZ_p mat, int world_rank)
+// Method that put a lot of load on the last processor
+// void getMinors(long int combinations[], long int combinationCount, int n, int r, int world_rank, int world_size)
+// {
+//     long int col[r], row[r];
+//     long int combinationCount = nCr(n, r);
+//     long int blockSize = combinationCount / world_size;
+//     long int start = world_rank * blockSize;
+//     long int end = ((world_rank == world_size - 1) ? combinationCount : start + blockSize);
+
+//     long int localMinorCount = 0; // Local count per process
+
+//     for (long int combinationNumber1 = start; combinationNumber1 < end; combinationNumber1++)
+//     {
+//         get_kth_combination(combinations, n, r, combinationNumber1 % combinationCount, row);
+//         for (long int combinationNumber2 = 0; combinationNumber2 < combinationCount; combinationNumber2++)
+//         {
+//             get_kth_combination(combinations, n, r, combinationNumber2, col);
+//             for (long int i = 0; i < r; i++)
+//             {
+//                 for (long int j = 0; j < r; j++)
+//                 {
+//                     cout << row[i] << col[j] << " ";
+//                 }
+//                 cout << endl;
+//             }
+//             cout << endl;
+//             localMinorCount++;
+//         }
+//     }
+
+//     long int globalMinorCount = 0;
+//     MPI_Reduce(&localMinorCount, &globalMinorCount, 1, MPI_LONG, MPI_SUM, 0, MPI_COMM_WORLD);
+
+//     if (world_rank == 0)
+//     {
+//         cout << "\nTotal minors : " << globalMinorCount << endl;
+//     }
+// }
+
+void minorDeterminant(long int r, long int row[], long int col[], mat_ZZ_p mat)
 {
     mat_ZZ_p minor;
     minor.SetDims(r, r);
@@ -156,37 +194,23 @@ void minorDeterminant(long int r, long int row[], long int col[], mat_ZZ_p mat, 
             minor[i][j] = mat[row[i]][col[j]];
             cout << minor[i][j] << " ";
         }
-        cout << world_rank << endl;
+        cout << endl;
     }
-    cout << endl;
-
     ZZ_p det = determinant(minor);
-
-    // ofstream detZeroMinor("detZeroMinor.txt");
-    // if (det == 0)
-    // {
-    //     for (long int i = 0; i < r; i++)
-    //     {
-    //         for (long int j = 0; j < r; j++)
-    //         {
-    //             detZeroMinor << minor[i][j] << " ";
-    //         }
-    //         detZeroMinor << endl;
-    //     }
-    //     detZeroMinor << endl;
-    // }
+    cout << endl;
 }
 
+// Method that evenly distributes minor calculations among all processors, with the last processor doing slightly more work
 void getMinors(long int combinations[], int n, int r, int world_rank, int world_size, mat_ZZ_p mat)
 {
     long int col[r], row[r];
     long int combinationCount = nCr(n, r);
     long int totalCombinations = pow(combinationCount, 2);
     long int blockSize = totalCombinations / world_size;
-    long int startRow = (world_rank * blockSize) / combinationCount;
-    long int startCol = (world_rank * blockSize) % combinationCount;
+    long int startRow = world_rank * blockSize / combinationCount;
+    long int startCol = world_rank * blockSize % combinationCount;
 
-    if ((totalCombinations < world_size) && (world_rank < totalCombinations))
+    if ((totalCombinations < world_size) && world_rank < totalCombinations)
     {
         blockSize = 1;
         startRow = world_rank / combinationCount;
@@ -204,11 +228,11 @@ void getMinors(long int combinations[], int n, int r, int world_rank, int world_
 
     while (count < blockSize)
     {
-        get_kth_combination(combinations, n, r, startCol % combinationCount, col);
-        minorDeterminant(r, row, col, mat, world_rank);
+        get_kth_combination(combinations, n, r, startCol, col);
+        minorDeterminant(r, row, col, mat);
 
         startCol++;
-        if (startCol == (combinationCount) && startRow < (n - 1))
+        if (startCol == (n) && startRow < (n - 1))
         {
             startCol = 0;
             startRow++;
@@ -216,13 +240,13 @@ void getMinors(long int combinations[], int n, int r, int world_rank, int world_
         }
         count++;
     }
-    // cout << "Count for Processor : " << world_rank << " = " << count << endl;
+    // cout << count << endl;
 }
 
 int main(int argc, char *argv[])
 {
-    long int n = 5;
-    long int r = 3;
+    long int n = 3;
+    long int r = 2;
     long int combinations[n];
     long int combinationCount = nCr(n, r);
 
@@ -260,106 +284,3 @@ int main(int argc, char *argv[])
 
     MPI_Finalize();
 }
-
-/*
-// Method that put a lot of load on the last processor
-void getMinors(long int combinations[], long int combinationCount, int n, int r, int world_rank, int world_size)
-{
-    long int col[r], row[r];
-    long int combinationCount = nCr(n, r);
-    long int blockSize = combinationCount / world_size;
-    long int start = world_rank * blockSize;
-    long int end = ((world_rank == world_size - 1) ? combinationCount : start + blockSize);
-
-    long int localMinorCount = 0; // Local count per process
-
-    for (long int combinationNumber1 = start; combinationNumber1 < end; combinationNumber1++)
-    {
-        get_kth_combination(combinations, n, r, combinationNumber1 % combinationCount, row);
-        for (long int combinationNumber2 = 0; combinationNumber2 < combinationCount; combinationNumber2++)
-        {
-            get_kth_combination(combinations, n, r, combinationNumber2, col);
-            for (long int i = 0; i < r; i++)
-            {
-                for (long int j = 0; j < r; j++)
-                {
-                    cout << row[i] << col[j] << " ";
-                }
-                cout << endl;
-            }
-            cout << endl;
-            localMinorCount++;
-        }
-    }
-
-    long int globalMinorCount = 0;
-    MPI_Reduce(&localMinorCount, &globalMinorCount, 1, MPI_LONG, MPI_SUM, 0, MPI_COMM_WORLD);
-
-    if (world_rank == 0)
-    {
-        cout << "\nTotal minors : " << globalMinorCount << endl;
-    }
-}
-*/
-
-/*
-// Method that evenly distributes minor calculations among all processors, with the last processor doing slightly more work
-void getMinors(long int combinations[], int n, int r, int world_rank, int world_size, mat_ZZ_p mat)
-{
-    long int col[r], row[r];
-    long int combinationCount = nCr(n, r);
-    long int totalCombinations = pow(combinationCount, 2);
-    long int blockSize = totalCombinations / world_size;
-    long int startRow = (world_rank * blockSize) / combinationCount;
-    long int startCol = (world_rank * blockSize) % combinationCount;
-    // long int endCol = (startCol + blockSize) % n;
-    cout << "Startcol and process : " << startCol << " " << world_rank << endl;
-
-    if ((totalCombinations < world_size) && (world_rank < totalCombinations))
-    {
-        blockSize = 1;
-        startRow = world_rank / combinationCount;
-        startCol = world_rank % combinationCount;
-    }
-
-    if (world_rank == (world_size - 1) && (totalCombinations >= world_size))
-    {
-        long int excessRows = blockSize % world_size;
-        blockSize += excessRows - 1;
-    }
-
-    long int count = 0;
-    get_kth_combination(combinations, n, r, startRow, row);
-    cout << "\nStart col combination for world rank " << world_rank << " : ";
-    for (int i = 0; i < r; i++)
-        cout << row[i] << " ";
-    cout << endl;
-
-    get_kth_combination(combinations, n, r, startCol, col);
-    for (int i = 0; i < r; i++)
-        cout << col[i] << " ";
-    cout << endl;
-
-    while (count < blockSize)
-    {
-        get_kth_combination(combinations, n, r, startCol, col);
-        if (world_rank == 3)
-        {
-            for (int i = 0; i < r; i++)
-                cout << col[i] << " ";
-            cout << endl;
-        }
-        // minorDeterminant(r, row, col, mat, world_rank);
-
-        startCol++;
-        if (startCol == (n) && startRow < (n - 1))
-        {
-            startCol = (world_rank * blockSize) % combinationCount;
-            startRow++;
-            get_kth_combination(combinations, n, r, startRow, row);
-        }
-        count++;
-    }
-    // cout << "Count for Processor : " << world_rank << " = " << count << endl;
-}
-*/
