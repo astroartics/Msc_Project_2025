@@ -31,7 +31,7 @@ https://github.com/user-attachments/assets/5f95fba4-1cac-4156-9366-b93e4c9d58fa
 <p align="center"> Reference : https://www.youtube.com/watch?v=bLktMcHuyYE </p></br>
 
 ### Things I've Learnt Till Date : 
-- Parallelizing tasks amongst available processors : setting start and end indices for each processor to work on a single matrix parallely.<br/>
+- Parallelizing tasks amongst available processors : setting start and end indices for each processor to work on a single matrix parallelly.<br/>
 - Using functions like MPI_Barrier(), MPI_Bcast(), MPI_Finalize(), MPI_Comm_size(), MPI_Comm_rank()
 - Getting familiar with NTL by using datatypes like ZZ_p, mat_ZZ_p, etc.
 - Basics of what Finite Fields are.
