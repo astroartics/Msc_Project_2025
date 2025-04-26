@@ -36,3 +36,4 @@ https://github.com/user-attachments/assets/5f95fba4-1cac-4156-9366-b93e4c9d58fa
 - Getting familiar with NTL by using datatypes like ZZ_p, mat_ZZ_p, etc.
 - Basics of what Finite Fields are.
 - Double and Add algorithm along with what ECDLP is.
+- Configuration of Master-Slave architecture in a cluster containing 6 working servers using password-less ssh, nfs, rsync.
