@@ -17,3 +17,4 @@
 ❌ (Incorrect) Trying out the written 'kth-combination with OpenMPI' code on the server with more than 4 processors and gauging the performance.<br/>
 ✅ Correcting the program, first in a serial manner, then using parallel computing - Program for getting (n-1) minors by dividing the number of minors evenly among all processors.<br/>
 ✅ Configured Master-Slave architecture for 6 servers using password-less ssh, nfs, rsync (48 processors are working).<br/>
+✅ Setting up Raspberry Pi as a master and laptop as the slave.<br/>
