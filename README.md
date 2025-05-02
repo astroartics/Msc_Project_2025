@@ -8,7 +8,7 @@ Given a big matrix, later reduced using an anti-offset (of say, 0.2 or 0.3 that 
 ### Project Description : 
 - Things to prove :
   1) Is the anti-offset useful?
-  2) If yes, what is the good value for the anti-offset within the range 0 to 1 (as the matrix has to be shrinked)?
+  2) If yes, what is the good value for the anti-offset within the range 0 to 1 (as the matrix has to be shrunk)?
      -  Values of anti-offset that have already been tested : 0.2, 0.3, that is a 20-30% reduced matrix.
     
 ### Approach :
