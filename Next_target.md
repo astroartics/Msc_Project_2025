@@ -1,7 +1,6 @@
 <img height=200 src="https://github.com/user-attachments/assets/a57c1548-0157-4edd-afd5-e1f0ef83ff22">
 
 ### Yet to do :
-- Understanding the send, receive, broadcast and barrier functions of OpenMPI.<br/>
 - Reading about the NVIDIA course.<br/>
 - Coming up with a rough solution for making sure if the ZMP can be solved even if the matrix is sized down using an anti-offset</br>
 - Getting the determinants of consecutive 2x2 minors and if the determinant is 0, then storing the minor in a file.<br/>
@@ -18,3 +17,4 @@
 ✅ Correcting the program, first in a serial manner, then using parallel computing - Program for getting (n-1) minors by dividing the number of minors evenly among all processors.<br/>
 ✅ Configured Master-Slave architecture for 6 servers using password-less ssh, nfs, rsync (48 processors are working).<br/>
 ✅ Setting up Raspberry Pi as a master and laptop as the slave.<br/>
+✅ Understanding the send, receive, broadcast and barrier functions of OpenMPI.<br/>
