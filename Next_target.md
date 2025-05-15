@@ -3,7 +3,6 @@
 ### Yet to do :
 - Reading about the NVIDIA course.<br/>
 - Coming up with a rough solution for making sure if the ZMP can be solved even if the matrix is sized down using an anti-offset</br>
-- Getting the determinants of consecutive 2x2 minors and if the determinant is 0, then storing the minor in a file.<br/>
 
 ### Done :
 ✅ Running NTL examples : ZZ_p matrix programs.<br/>
@@ -18,3 +17,4 @@
 ✅ Configured Master-Slave architecture for 6 servers using password-less ssh, nfs, rsync (48 processors are working).<br/>
 ✅ Setting up Raspberry Pi as a master and laptop as the slave.<br/>
 ✅ Understanding the send, receive, broadcast and barrier functions of OpenMPI.<br/>
+✅ Getting the determinants of consecutive 2x2 minors and if the determinant is 0, then storing the minor in a file.<br/>
