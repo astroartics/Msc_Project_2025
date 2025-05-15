@@ -3,6 +3,7 @@
 ### Yet to do :
 - Reading about the NVIDIA course.<br/>
 - Coming up with a rough solution for making sure if the ZMP can be solved even if the matrix is sized down using an anti-offset</br>
+- Come up with a way to apply probabilistic pruning in order to eliminate 2x2 minor calculation.<br/>
 
 ### Done :
 ✅ Running NTL examples : ZZ_p matrix programs.<br/>
