@@ -13,7 +13,7 @@ Given a big matrix, later reduced using an anti-offset (of say, 0.2 or 0.3 that 
     
 ### Approach :
 1) Brute force : Getting each and every minor from the given matrix and checking if its determinant is 0.
-2) The Latecomer's Algorithm : Checking to see if in some way the calculation of the determinant of the 2x2 minors can yield some useful results such that the calculation of the determinants of the minors dependent on these 2x2 minors can be eliminated or reduced in some way, since there are only 2 possibilities : either the determinant is 0, or it is not, so in a way reducing calculations to some amount (given that the algorithm works).
+2) The Latecomer's Algorithm : Checking to see if in some way the calculation of the determinant of the 2x2 minors can yield some useful results such that the calculation of the determinants of the minors dependent on these 2x2 minors can be eliminated or reduced in some way using probabilistic pruning, since there are only 2 possibilities : either the determinant is 0, or it is not, so in a way reducing calculations to some amount (given that the algorithm works).
 </br>
 
 ## Elliptic Curve :
