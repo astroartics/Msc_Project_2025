@@ -1,5 +1,5 @@
 <h1 align="center">MSc(Scientific Computing) Project 2024-25</h1>
-<h3 align="center">(This is a repository that will contain all the things I've done, related to my MSc(Scientific Computing)<br/>semester-2 research-based project.)</h3>
+<h3 align="center">(This is a repository that contains all the things I've done, related to my MSc(Scientific Computing)<br/>semester-2 research-based project.)</h3>
 <h2 align="center"> ECDLP (Elliptic Curve Discrete Logarithm Problem) </h2>
 
 ### Project Aim :
